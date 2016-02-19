@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/07 23:44:16 by syusof            #+#    #+#             */
-/*   Updated: 2016/02/19 04:53:15 by syusof           ###   ########.fr       */
+/*   Updated: 2016/02/19 05:22:17 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,15 @@ static void draw(t_env2 *env2)
 		p++;
 	}
 	p = 0;
+//	printf("nb lines = %d\n",env2->nb_lines);
 	while (p < env2->nb_lines - 1)
 	{
 		coord1 = get_coord(env2, env2->coord[p][env2->col[p] - 1], &ft_iso);
-		coord2 = get_coord(env2, env2->coord[p + 1][env2->col[p + 1] - 1], &ft_iso);
+		coord2 = get_coord(env2, env2->coord[p + 1][env2->col[p] - 1], &ft_iso);
 		ft_print_line(env2, coord1, coord2);
 		p++;
 	}
+//	printf("p = %d\n",p);
 	q = 0;
 	while (q < env2->col[p] - 1)
 	{

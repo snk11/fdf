@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2015/05/31 15:32:34 by syusof           ###   ########.fr       */
+/*   Updated: 2016/02/19 05:02:05 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <sys/types.h>
 # include <stdlib.h>
 # include <math.h>
+# include <stdio.h>
 # include "libmlx/mlx.h"
 
 typedef struct		s_coord
