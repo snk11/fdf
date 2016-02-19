@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 00:03:17 by syusof            #+#    #+#             */
-/*   Updated: 2015/05/31 15:06:35 by syusof           ###   ########.fr       */
+/*   Updated: 2016/02/19 04:01:13 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ void			ft_read_map(char *file, t_env2 **env2)
 {
 	int		fd;
 	char	*line;
-	int		i;
+//	int		i;
 	int		j;
 	int		c;
 
 	c = 0;
 	line = NULL;
-	if (!j)
+//	if (!j)
 		j = 0;
 	fd = open(file, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
@@ -87,12 +87,12 @@ void			ft_read_map(char *file, t_env2 **env2)
 	(*env2)->coord = (t_coord**)malloc(sizeof(t_coord*) * j);
 	fd = open(file, O_RDONLY);
 	(*env2)->col = (int*)malloc(sizeof(int) * j);
-	i = 0;
+	j = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
-		c = ft_get_col(line, &env2, i);
-		((*env2)->coord)[i] = (t_coord*)malloc(sizeof(t_coord) * c);
-		i++;
+		c = ft_get_col(line, &env2, j);
+		((*env2)->coord)[j] = (t_coord*)malloc(sizeof(t_coord) * c);
+		j++;
 	}
 	close(fd);
 	j = 0;

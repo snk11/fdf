@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/07 23:44:16 by syusof            #+#    #+#             */
-/*   Updated: 2015/05/31 15:30:33 by syusof           ###   ########.fr       */
+/*   Updated: 2016/02/19 04:53:15 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,18 @@ static void draw(t_env2 *env2)
 	p = 0;
 	while (p < env2->nb_lines - 1)
 	{
-		q = 1;
-		while (q < env2->col[p])
+		q = 0;
+		while (q < (env2->col[p]) - 1)
 		{
-			coord1 = get_coord(env2, env2->coord[p][q - 1], &ft_iso);
-			if (q < env2->col[p])
+			coord1 = get_coord(env2, env2->coord[p][q], &ft_iso);
+//			if (q < env2->col[p])
 			{
-				coord2 = get_coord(env2, env2->coord[p][q], &ft_iso);
+				coord2 = get_coord(env2, env2->coord[p][q + 1], &ft_iso);
 				ft_print_line(env2, coord1, coord2);
 			}
-			if (p < ((env2->nb_lines) - 1) && q < env2->col[p])
+//			if (p < ((env2->nb_lines) - 1) && q < env2->col[p])
 			{
-				coord2 = get_coord(env2, env2->coord[p + 1][q - 1], &ft_iso);
+				coord2 = get_coord(env2, env2->coord[p + 1][q], &ft_iso);
 				ft_print_line(env2, coord1, coord2);
 			}
 			q++;
