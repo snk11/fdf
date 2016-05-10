@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/07 23:44:16 by syusof            #+#    #+#             */
-/*   Updated: 2016/02/19 05:22:17 by syusof           ###   ########.fr       */
+/*   Updated: 2016/05/10 16:44:59 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static int ft_print_line(t_env2 *env2, t_coord coord1, t_coord coord2)
 	int		err;
 	int		e2;
 
-	dx = abs(coord2.x - coord1.x);
-	dy = abs(coord2.y - coord1.y);
+	dx = ft_abs(coord2.x - coord1.x);
+	dy = ft_abs(coord2.y - coord1.y);
 	sx = coord1.x < coord2.x ? 1 : -1;
 	sy = coord1.y < coord2.y ? 1 : -1;
 	err = (dx > dy ? dx : -dy) / 2;
