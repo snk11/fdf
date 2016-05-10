@@ -6,7 +6,7 @@
 #    By: syusof <syusof@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/03 00:07:39 by syusof            #+#    #+#              #
-#    Updated: 2015/05/31 14:50:56 by syusof           ###   ########.fr        #
+#    Updated: 2016/05/10 17:07:28 by syusof           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,12 +33,12 @@ $(NAME):
 
 clean:
 	rm -f $(OFILES)
+	rm -f $(OMAIN)
 	make -C libft/ clean
 	make -C libmlx/ clean
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(OMAIN)
 	make -C libft/ fclean
 
 re: fclean all
