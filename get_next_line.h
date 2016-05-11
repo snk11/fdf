@@ -6,11 +6,11 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/18 18:16:03 by syusof            #+#    #+#             */
-/*   Updated: 2015/05/19 14:32:14 by syusof           ###   ########.fr       */
+/*   Updated: 2016/05/11 16:36:40 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
 # include <string.h>
@@ -19,7 +19,9 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-# define BUFF_SIZE 6
+# include "stdio.h"
+
+# define BUFF_SIZE 8192
 
 typedef struct		s_env
 {
@@ -29,9 +31,6 @@ typedef struct		s_env
 	int		index;
 }					t_env;
 
+int					get_next_line(int const fd, char **line);
 
-
-
-int		get_next_line(int const fd, char **line);
-
-# endif
+#endif
