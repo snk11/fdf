@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 11:12:39 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 11:50:48 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 13:01:35 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ void	ft_init(t_env2 *env2)
 	env2->color = 0xFF0000;
 	env2->i = 0;
 	env2->error = 0;
+}
 
-
+void	ft_init2(t_para *para1)
+{
+	para1->dx = 0;
+	para1->dy = 0;
+	para1->sx = 0;
+	para1->sy = 0;
+	para1->err = 0;
+	para1->e2 = 0;
 }
