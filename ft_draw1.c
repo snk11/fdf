@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 15:57:03 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 17:08:58 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 20:40:22 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,50 @@ int			ft_print_line1(t_env2 *env2, t_doub coord1, t_doub coord2)
 {
 	t_para	para1;
 
-	ft_init2(&para1);
-	para1.dx = ft_abs(coord2.x - coord1.x);
-	para1.dy = ft_abs(coord2.y - coord1.y);
-	para1.sx = coord1.x < coord2.x ? 1 : -1;
-	para1.sy = coord1.y < coord2.y ? 1 : -1;
-	para1.err = (para1.dx > para1.dy ? para1.dx : -(para1.dy)) / 2;
-	while (coord1.x != coord2.x && coord1.y != coord2.y)
+	para1.x = coord1.x ;
+	para1.y = coord1.y ;
+	para1.dx = coord2.x -coord1.x  ;
+	para1.dy = coord2.y - coord1.y;
+	para1.xinc = ( para1.dx > 0 ) ? 1 : -1 ;
+	para1.yinc = ( para1.dy > 0 ) ? 1 : -1 ;
+	para1.dx = abs(para1.dx) ;
+	para1.dy = abs(para1.dy) ;
+	mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
+				   + para1.x, OY +env2->offy + para1.y, env2->color);
+	if ( para1.dx > para1.dy )
 	{
-		mlx_pixel_put((env2)->mlx, (env2)->win, OX + env2->offx
-				+ coord1.x, OY + env2->offy + coord1.y, env2->color);
-		para1.e2 = para1.err;
-		if (para1.e2 > -(para1.dx))
+		para1.cumul = para1.dx / 2 ;
+		para1.i = 1;
+		while (  para1.i <= para1.dx )
 		{
-			para1.err -= para1.dy;
-			coord1.x += para1.sx;
+			para1.x += para1.xinc ;
+			para1.cumul += para1.dy ;
+			if ( para1.cumul >= para1.dx )
+			{
+				para1.cumul -= para1.dx ;
+				para1.y += para1.yinc ;
+			}
+			mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
+				   + para1.x, OY +env2->offy + para1.y, env2->color);
+			para1.i++;
 		}
-		if (para1.e2 < para1.dy)
+	}
+	else 
+	{
+		para1.cumul = para1.dy / 2 ;
+		para1.i = 1;
+		while (para1.i <= para1.dy)
 		{
-			para1.err += para1.dx;
-			coord1.y += para1.sy;
+			para1.y += para1.yinc ;
+			para1.cumul += para1.dx ;
+			if ( para1.cumul >= para1.dy ) 
+			{
+				para1.cumul -= para1.dy ;
+				para1.x += para1.xinc ; 
+			}
+			mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
+				   + para1.x, OY +env2->offy + para1.y, env2->color);
+			para1.i++;
 		}
 	}
 	return (0);

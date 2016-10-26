@@ -6,15 +6,15 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 19:58:44 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 20:17:26 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# define OX		100
-# define OY		100
+# define OX		400
+# define OY		500
 # define GAP_X			15
 # define GAP_Y			15
 # define S_Z			10
@@ -83,10 +83,6 @@ typedef struct		s_env2
 	int				i;
 	int				error;
 	int				readmode;
-	int				maxx;
-	int				minx;
-	int				maxy;
-	int				miny;
 }					t_env2;
 
 void				ft_read_map(char *file, t_env2 *e);

@@ -6,14 +6,14 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 16:23:08 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 17:09:05 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 20:30:38 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 
-void            ft_read_map2(char *file, t_env2 *env2)
+void			ft_read_map2(char *file, t_env2 *env2)
 {
 	int        fd;
 	char    *line;
@@ -39,7 +39,7 @@ void            ft_read_map2(char *file, t_env2 *env2)
 	ft_read_map22(file, env2, line);
 }
 
-void        ft_read_map22(char *file, t_env2 *env2, char *line)
+void			ft_read_map22(char *file, t_env2 *env2, char *line)
 {
 	int        fd;
 	int        j;

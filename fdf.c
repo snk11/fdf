@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/19 10:52:17 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 17:26:18 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 20:50:26 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ int		main(int arc, char **arv)
 
 	if (env2->error == 0)
 	{
-		if(env2->readmode == 1)
+//		if(env2->readmode == 1)
 		{
 			mlx_key_hook(env2->win, key_hook1, env2);
 			mlx_expose_hook(env2->win, expose_hook1, env2);
 			mlx_loop(env2->mlx);
 		}
-		else if(env2->readmode == 2)
-		{
-			mlx_key_hook(env2->win, key_hook2, env2);
-			mlx_expose_hook(env2->win, expose_hook2, env2);
-			mlx_loop(env2->mlx);
-		}
+//		else if(env2->readmode == 2)
+//		{
+//			mlx_key_hook(env2->win, key_hook2, env2);
+//			mlx_expose_hook(env2->win, expose_hook2, env2);
+//			mlx_loop(env2->mlx);
+//		}
 	}
 	else
 		ft_putstr("error map\n");

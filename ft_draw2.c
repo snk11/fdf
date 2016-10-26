@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 15:57:25 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 20:02:27 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 20:31:30 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			ft_print_line2(t_env2 *env2, t_coord coord1, t_coord coord2)
 	para1.dx = abs(para1.dx) ;
 	para1.dy = abs(para1.dy) ;
 	mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
-				   + para1.x, OY +env2->offy + para1.y, env2->color);
+				   + para1.x  , OY +env2->offy + para1.y, env2->color);
 	if ( para1.dx > para1.dy )
 	{
 		para1.cumul = para1.dx / 2 ;
@@ -40,7 +40,7 @@ int			ft_print_line2(t_env2 *env2, t_coord coord1, t_coord coord2)
 				para1.y += para1.yinc ;
 			}
 			mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
-				   + para1.x, OY +env2->offy + para1.y, env2->color);
+				   + para1.x , OY +env2->offy + para1.y, env2->color);
 			para1.i++;
 		}
 	}
@@ -58,35 +58,11 @@ int			ft_print_line2(t_env2 *env2, t_coord coord1, t_coord coord2)
 				para1.x += para1.xinc ; 
 			}
 			mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
-				   + para1.x, OY +env2->offy + para1.y, env2->color);
+				   + para1.x , OY +env2->offy + para1.y , env2->color);
 			para1.i++;
 		} 
 	}
-				/*
-				   ft_init2(&para1);
-				   para1.dx = ft_abs(coord2.x - coord1.x);
-				   para1.dy = ft_abs(coord2.y - coord1.y);
-				   para1.sx = coord1.x < coord2.x ? 1 : -1;
-				   para1.sy = coord1.y < coord2.y ? 1 : -1;
-				   para1.err = (para1.dx > para1.dy ? para1.dx : -(para1.dy)) / 2;
-				   while (coord1.x != coord2.x && coord1.y != coord2.y)
-				   {
-				   mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
-				   + coord1.x, OY +env2->offy + coord1.y, env2->color);
-				   para1.e2 = para1.err;
-				   if (para1.e2 > -(para1.dx))
-				   {
-				   para1.err -= para1.dy;
-				   coord1.x += para1.sx;
-				   }
-				   if (para1.e2 < para1.dy)
-				   {
-				   para1.err += para1.dx;
-				   coord1.y += para1.sy;
-				   }
-				   }
-				   */
-				return (0);
+	return (0);
 }
 
 void		draw2(t_env2 *env2)

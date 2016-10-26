@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/07 23:44:16 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 19:41:54 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 20:19:51 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,6 @@ t_coord		get_coord(t_env2 *e2, t_coord c1, t_coord (*f)(int, int, int))
 	coord_mod.y = c1.y * GAP_Y * e2->coeff;
 	coord_mod.z = c1.z * S_Z * e2->coeff;
 	coord_mod = (f)(coord_mod.x, coord_mod.y, coord_mod.z);
-	if(coord_mod.x > e2->maxx)
-		e2->maxx = coord_mod.x;
-	if(coord_mod.x > e2->minx)
-		e2->maxx = coord_mod.x;
-	if(coord_mod.x > e2->maxy)
-		e2->maxx = coord_mod.y;
-	if(coord_mod.x > e2->miny)
-		e2->maxx = coord_mod.y;
 	return (coord_mod);
 }
 
@@ -46,13 +38,13 @@ int			key_hook1(int keycode, t_env2 *env2)
 	if (keycode == 53)
 		exit(0);
 	if (keycode == 123)
-		env2->offx -= 5;
+		env2->offx -= 30;
 	if (keycode == 124)
-		env2->offx += 5;
+		env2->offx += 30;
 	if (keycode == 125)
-		env2->offy += 5;
+		env2->offy += 30;
 	if (keycode == 126)
-		env2->offy -= 5;
+		env2->offy -= 30;
 	if (keycode == 69)
 		env2->coeff += 1;
 	if (keycode == 78)
@@ -70,13 +62,13 @@ int			key_hook2(int keycode, t_env2 *env2)
 	if (keycode == 53)
 		exit(0);
 	if (keycode == 123)
-		env2->offx -= 15;
+		env2->offx -= 30;
 	if (keycode == 124)
-		env2->offx += 15;
+		env2->offx += 30;
 	if (keycode == 125)
-		env2->offy += 15;
+		env2->offy += 30;
 	if (keycode == 126)
-		env2->offy -= 15;
+		env2->offy -= 30;
 	if (keycode == 69)
 		env2->coeff += 1;
 	if (keycode == 78)

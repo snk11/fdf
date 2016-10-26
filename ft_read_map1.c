@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 17:28:08 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 21:00:46 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,30 +87,49 @@ void			ft_getpoint1(char *line, t_env2 *env2, int j)
 	k = 0;
 	while (line[i] && env2->error == 0)
 	{
-		if (ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
+		if(ft_checkmode(&line[i]) == 1)
 		{
-			start = i;
-			while (line[i] && ft_isdigit(line[i]) && line[i] != '+'
-				&& line[i] != '-')
-				i++;
-			ft_getpoint12(env2, j, k);
-			tmp = ft_atoi(ft_strsub(line, start, i - start));
-			((env2)->doub1)[j][k].z = tmp;
-			if(line[i] == ',' && line[i+1] && line[i+1] == '0' && line[i+2] && line[i+2] == 'x')
+			if (ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
 			{
-				
-				i = i + 3;
 				start = i;
-				while (line[i]  && line[i] != '+'
-					&& line[i] != '-' && (ft_isdigit(line[i]) || (line[i] >= 'a' && line[i] <= 'f' )|| (line[i] >= 'A' && line[i] <= 'F')))
+				while (line[i] && ft_isdigit(line[i]) && line[i] != '+'
+						&& line[i] != '-')
 					i++;
-				if(start < i)
+				ft_getpoint12(env2, j, k);
+				tmp = ft_atoi(ft_strsub(line, start, i - start));
+				((env2)->doub1)[j][k].z = tmp;
+				if(line[i] == ',' && line[i+1] && line[i+1] == '0' && line[i+2] && line[i+2] == 'x')
 				{
-					tmp = ft_hexaatoi(ft_strsub(line, start, i - start));
-					((env2)->doub1)[j][k].color = tmp;
+
+					i = i + 3;
+					start = i;
+					while (line[i]  && line[i] != '+'
+							&& line[i] != '-' && (ft_isdigit(line[i]) || (line[i] >= 'a' && line[i] <= 'f' )|| (line[i] >= 'A' && line[i] <= 'F')))
+						i++;
+					if(start < i)
+					{
+						tmp = ft_hexaatoi(ft_strsub(line, start, i - start));
+						((env2)->doub1)[j][k].color = tmp;
+					}
+				}
+				k++;
+			}
+		}
+		else if (ft_checkmode(&line[i]) == 0 && ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
+		{	while (line[i] && env2->error == 0)
+			{
+				if (ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
+				{
+					start = i;
+					while (line[i] && ft_isdigit(line[i]) && line[i] != '+'
+							&& line[i] != '-')
+						i++;
+					ft_getpoint2(env2, j, k);
+					tmp = ft_atoi(ft_strsub(line, start, i - start));
+					((env2)->doub1)[j][k].z = tmp;
+					k++;
 				}
 			}
-			k++;
 		}
 		else if (line[i] == '\t' || line[i] == ' ')
 			i++;
@@ -137,7 +156,7 @@ int				ft_get_col1(char *line, t_env2 *env2, int i)
 		if (ft_isdigit(line[k]) && line[k] != '+' && line[k] != '-')
 		{
 			while (line[k] && (ft_isalnum(line[k]) || line[k] == ',' || line[k] == 'x')&& line[k] != '+'
-			&& line[k] != '-')
+					&& line[k] != '-')
 				k++;
 			n++;
 		}
@@ -148,6 +167,7 @@ int				ft_get_col1(char *line, t_env2 *env2, int i)
 		else
 			env2->error = 1;
 	}
+	printf("n = %d\n",n);
 	((env2)->col)[i] = n;
 	return (n);
 }
