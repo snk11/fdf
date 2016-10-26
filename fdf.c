@@ -6,14 +6,11 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/19 10:52:17 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 12:00:50 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 12:21:42 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include "fdf.h"
-#include <fcntl.h>
-#include <stdlib.h>
 
 int		main(int arc, char **arv)
 {

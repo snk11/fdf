@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 13:00:41 by syusof            #+#    #+#             */
-/*   Updated: 2016/05/10 16:44:11 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 12:20:15 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstadd(t_list **alst, t_list *new1);
 void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));

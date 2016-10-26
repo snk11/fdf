@@ -6,12 +6,11 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/05 15:18:28 by syusof            #+#    #+#             */
-/*   Updated: 2016/05/11 16:43:35 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 12:19:15 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "libft/libft.h"
 
 static int				ft_concat(char **line, t_env **env)
 {
