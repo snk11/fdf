@@ -6,7 +6,7 @@
 #    By: syusof <syusof@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/05 17:57:07 by syusof            #+#    #+#              #
-#    Updated: 2016/10/26 14:01:08 by syusof           ###   ########.fr        #
+#    Updated: 2016/10/26 16:14:16 by syusof           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ ft_tolower.c ft_bzero.c ft_lstdel.c ft_memcmp.c ft_putendl_fd.c ft_strcmp.c \
 ft_strlcat.c ft_strnew.c ft_toupper.c ft_isalnum.c ft_lstdelone.c ft_memcpy.c \
 ft_putnbr.c ft_strcpy.c ft_strlen.c ft_strnstr.c ft_isalpha.c ft_lstiter.c \
 ft_memdel.c ft_putnbr_fd.c ft_strdel.c ft_strmap.c ft_strrchr.c ft_isascii.c \
-ft_lstmap.c ft_memmove.c ft_putstr.c ft_strdup.c ft_strmapi.c ft_strsplit.c
+ft_lstmap.c ft_memmove.c ft_putstr.c ft_strdup.c ft_strmapi.c ft_strsplit.c \
+ft_hexaatoi.c
 
 OBJ = ft_isdigit.o ft_lstnew.o ft_memset.o ft_putstr_fd.o ft_strequ.o \
 ft_strncat.o ft_strstr.o ft_isprint.o ft_memalloc.o ft_putchar.o ft_strcat.o \
@@ -32,7 +33,8 @@ ft_tolower.o ft_bzero.o ft_lstdel.o ft_memcmp.o ft_putendl_fd.o ft_strcmp.o \
 ft_strlcat.o ft_strnew.o ft_toupper.o ft_isalnum.o ft_lstdelone.o ft_memcpy.o \
 ft_putnbr.o ft_strcpy.o ft_strlen.o ft_strnstr.o ft_isalpha.o ft_lstiter.o \
 ft_memdel.o ft_putnbr_fd.o ft_strdel.o ft_strmap.o ft_strrchr.o ft_isascii.o \
-ft_lstmap.o ft_memmove.o ft_putstr.o ft_strdup.o ft_strmapi.o ft_strsplit.o
+ft_lstmap.o ft_memmove.o ft_putstr.o ft_strdup.o ft_strmapi.o ft_strsplit.o \
+ft_hexaatoi.o
 
 
 

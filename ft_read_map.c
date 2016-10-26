@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 00:03:17 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 12:49:28 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 16:44:20 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,28 +74,23 @@ int				ft_get_col(char *line, t_env2 *env2, int i)
 	return (n);
 }
 
-void			ft_read_map(char *file, t_env2 *env2)
+void			ft_read_map0(char *file, t_env2 *env2)
 {
-	int		fd;
 	char	*line;
-	int		j;
-	int		c;
+	int		fd;
 
-	c = 0;
-	line = NULL;
-	j = 0;
 	fd = open(file, O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
+	if(get_next_line(fd,&line) > 0)
 	{
-		if (*line)
+		if (ft_checkmode(line) == 1)
 		{
-			j++;
-			(env2)->nb_lines = j;
+			ft_read_map1(file, env2);
+			env2->readmode = 1;
+		}
+		else
+		{
+			ft_read_map2(file, env2);
+			env2->readmode = 2;
 		}
 	}
-	close(fd);
-	(env2)->coord = (t_coord**)malloc(sizeof(t_coord*) * j);
-	fd = open(file, O_RDONLY);
-	(env2)->col = (int*)malloc(sizeof(int) * j);
-	ft_read_map2(file, env2, line);
 }
