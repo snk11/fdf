@@ -6,13 +6,13 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 00:03:17 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 12:09:54 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 12:49:28 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		ft_getpoint(char *line, t_env2 *env2, int j)
+void			ft_getpoint(char *line, t_env2 *env2, int j)
 {
 	int		i;
 	int		start;
@@ -29,8 +29,7 @@ static void		ft_getpoint(char *line, t_env2 *env2, int j)
 			while (line[i] && ft_isdigit(line[i]) && line[i] != '+'
 				&& line[i] != '-')
 				i++;
-			((env2)->coord)[j][k].x = k;
-			((env2)->coord)[j][k].y = j;
+			ft_getpoint2(env2, j, k);
 			tmp = ft_atoi(ft_strsub(line, start, i - start));
 			((env2)->coord)[j][k].z = tmp;
 			k++;
@@ -42,7 +41,13 @@ static void		ft_getpoint(char *line, t_env2 *env2, int j)
 	}
 }
 
-static	int		ft_get_col(char *line, t_env2 *env2, int i)
+void			ft_getpoint2(t_env2 *env2, int j, int k)
+{
+	((env2)->coord)[j][k].x = k;
+	((env2)->coord)[j][k].y = j;
+}
+
+int				ft_get_col(char *line, t_env2 *env2, int i)
 {
 	int k;
 	int n;
@@ -58,7 +63,7 @@ static	int		ft_get_col(char *line, t_env2 *env2, int i)
 				k++;
 			n++;
 		}
-		else if(line[k] == '\t' || line[k] == ' ')
+		else if (line[k] == '\t' || line[k] == ' ')
 		{
 			k++;
 		}
@@ -73,18 +78,16 @@ void			ft_read_map(char *file, t_env2 *env2)
 {
 	int		fd;
 	char	*line;
-//	int		i;
 	int		j;
 	int		c;
 
 	c = 0;
 	line = NULL;
-//	if (!j)
-		j = 0;
+	j = 0;
 	fd = open(file, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
 	{
-		if(*line)
+		if (*line)
 		{
 			j++;
 			(env2)->nb_lines = j;
@@ -94,23 +97,5 @@ void			ft_read_map(char *file, t_env2 *env2)
 	(env2)->coord = (t_coord**)malloc(sizeof(t_coord*) * j);
 	fd = open(file, O_RDONLY);
 	(env2)->col = (int*)malloc(sizeof(int) * j);
-	j = 0;
-	while (get_next_line(fd, &line) > 0)
-	{
-		c = ft_get_col(line, env2, j);
-		((env2)->coord)[j] = (t_coord*)malloc(sizeof(t_coord) * c);
-		j++;
-	}
-	close(fd);
-	j = 0;
-	fd = open(file, O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
-	{
-		ft_getpoint(line, env2, j);
-		j++;
-	}
-	close(fd);
-	(env2)->offx = 0;
-	(env2)->offy = 0;
-	(env2)->coeff = 2;
+	ft_read_map2(file, env2, line);
 }
