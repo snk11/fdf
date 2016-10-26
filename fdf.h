@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 17:06:01 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 19:58:44 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # define OX		100
 # define OY		100
-# define GAP_X			60
-# define GAP_Y			60
+# define GAP_X			15
+# define GAP_Y			15
 # define S_Z			10
 
 # include "get_next_line.h"
@@ -44,6 +44,20 @@ typedef struct		s_para
 	int		sy;
 	int		err;
 	int		e2;
+
+	int		cumul;
+	int		x;
+	int		y;
+	int		d;
+	int		s;
+	int		i;
+	int		xinc;
+	int		yinc;
+	int		incre;
+	int		incrne;
+	int		e;
+	long		a;
+	long		b;
 }					t_para;
 
 typedef struct		s_doub
@@ -69,6 +83,10 @@ typedef struct		s_env2
 	int				i;
 	int				error;
 	int				readmode;
+	int				maxx;
+	int				minx;
+	int				maxy;
+	int				miny;
 }					t_env2;
 
 void				ft_read_map(char *file, t_env2 *e);

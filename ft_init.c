@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 11:12:39 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 15:50:16 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 18:04:27 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	ft_init(t_env2 *env2)
 	env2->i = 0;
 	env2->error = 0;
 	env2->readmode = 0;
+	env2->maxx = 0;
+	env2->minx = 0;
+	env2->maxy = 0;
+	env2->miny = 0;
 }
 
 void	ft_init2(t_para *para1)
