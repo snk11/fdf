@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 00:03:17 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 11:55:47 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 12:09:54 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		ft_getpoint(char *line, t_env2 *env2, int j)
 
 	i = 0;
 	k = 0;
-	while (line[i])
+	while (line[i] && env2->error == 0)
 	{
 		if (ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
 		{
@@ -49,7 +49,7 @@ static	int		ft_get_col(char *line, t_env2 *env2, int i)
 
 	k = 0;
 	n = 0;
-	while (line[k])
+	while (line[k] && env2->error == 0)
 	{
 		if (ft_isdigit(line[k]) && line[k] != '+' && line[k] != '-')
 		{
@@ -62,6 +62,8 @@ static	int		ft_get_col(char *line, t_env2 *env2, int i)
 		{
 			k++;
 		}
+		else
+			env2->error = 1;
 	}
 	((env2)->col)[i] = n;
 	return (n);
@@ -82,8 +84,11 @@ void			ft_read_map(char *file, t_env2 *env2)
 	fd = open(file, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
 	{
-		j++;
-		(env2)->nb_lines = j;
+		if(*line)
+		{
+			j++;
+			(env2)->nb_lines = j;
+		}
 	}
 	close(fd);
 	(env2)->coord = (t_coord**)malloc(sizeof(t_coord*) * j);
