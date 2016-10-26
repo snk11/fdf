@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/19 10:52:17 by syusof            #+#    #+#             */
-/*   Updated: 2015/05/31 14:54:43 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 11:16:14 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		main(int arc, char **arv)
 
 	if (!(env2 = (t_env2*)malloc(sizeof(t_env2))))
 		return (-1);
+	ft_init(env2);
 	env2->mlx = mlx_init();
 	env2->win = mlx_new_window(env2->mlx, 800, 800, "fdf");
 	if (arc == 2)

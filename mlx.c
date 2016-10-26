@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/07 23:44:16 by syusof            #+#    #+#             */
-/*   Updated: 2016/05/10 16:44:59 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 11:36:59 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int ft_print_line(t_env2 *env2, t_coord coord1, t_coord coord2)
 	err = (dx > dy ? dx : -dy) / 2;
 	while (coord1.x != coord2.x && coord1.y != coord2.y)
 	{
-		mlx_pixel_put((env2)->mlx, (env2)->win, OX + env2->offx + coord1.x, OY + env2->offy + coord1.y, 0xFF0000);
+		mlx_pixel_put((env2)->mlx, (env2)->win, OX + env2->offx + coord1.x, OY + env2->offy + coord1.y, env2->color);
 		e2 = err;
 		if (e2 > -dx)
 		{
@@ -115,6 +115,8 @@ static void draw(t_env2 *env2)
 
 int		key_hook(int keycode, t_env2 *env2)
 {
+	//	printf("keycode = %d\n",keycode);
+	
 	if (keycode == 53)
 		exit(0);
 	if (keycode == 123)
@@ -132,6 +134,29 @@ int		key_hook(int keycode, t_env2 *env2)
 		if ((env2->coeff - 1) > 0)
 			env2->coeff -= 1;
 	}
+	if (keycode == 8)
+	{
+		if (env2->i < 5)
+		{
+			if(env2->i == 0)
+				env2->color = 0x00FFFF;
+			else if (env2->i == 1)
+				env2->color = 0x008000;
+			else if (env2->i == 2)
+				env2->color = 0xFFFF00;
+			else if (env2->i == 3)
+				env2->color = 0x0000FF;
+			else if (env2->i == 4)
+				env2->color = 0xFF00FF;
+			(env2->i)++;
+		}
+		else
+		{
+			env2->color = 0xFF0000;
+			env2->i = 0;
+		}
+	}
+
 	expose_hook(env2);
 	return (0);
 }

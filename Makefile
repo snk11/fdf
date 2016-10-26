@@ -6,13 +6,13 @@
 #    By: syusof <syusof@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/03 00:07:39 by syusof            #+#    #+#              #
-#    Updated: 2016/05/10 17:07:28 by syusof           ###   ########.fr        #
+#    Updated: 2016/10/26 11:21:47 by syusof           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-SRCS = get_next_line.c ft_read_map.c mlx.c
+SRCS = get_next_line.c ft_read_map.c mlx.c ft_init.c
 
 OFILES = $(SRCS:.c=.o)
 

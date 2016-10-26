@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/02/19 05:02:05 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 11:19:31 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,14 @@ typedef struct		s_env2
 	int				offx;
 	int				offy;
 	int				coeff;
+	int				color;
+	int				i;
 }					t_env2;
 
 void				ft_read_map(char *file, t_env2 **e);
 int					get_next_line(int const fd, char **line);
 int					key_hook(int keycode, t_env2 *env2);
 int					expose_hook(t_env2 *env2);
+void	ft_init(t_env2 *env2);
 
 #endif
