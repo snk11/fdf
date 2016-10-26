@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 17:09:01 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/26 17:28:08 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,17 @@ void			ft_getpoint1(char *line, t_env2 *env2, int j)
 			((env2)->doub1)[j][k].z = tmp;
 			if(line[i] == ',' && line[i+1] && line[i+1] == '0' && line[i+2] && line[i+2] == 'x')
 			{
+				
 				i = i + 3;
 				start = i;
 				while (line[i]  && line[i] != '+'
 					&& line[i] != '-' && (ft_isdigit(line[i]) || (line[i] >= 'a' && line[i] <= 'f' )|| (line[i] >= 'A' && line[i] <= 'F')))
 					i++;
-//				tmp = ft_hexaatoi(ft_strsub(line, start, i - start));
-//				((env2)->doub1)[j][k].color = tmp;
+				if(start < i)
+				{
+					tmp = ft_hexaatoi(ft_strsub(line, start, i - start));
+					((env2)->doub1)[j][k].color = tmp;
+				}
 			}
 			k++;
 		}
