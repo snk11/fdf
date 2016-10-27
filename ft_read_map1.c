@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 14:19:47 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 14:32:58 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ void			ft_read_map11(char *file, t_env2 *env2, char *line)
 	}
 	ft_free(&line);
 	close(fd);
+	ft_read_map111(file, env2, line);
+}
+
+void			ft_read_map111(char *file, t_env2 *env2, char *line)
+{
+	int		j;
+	int		fd;
+
 	j = 0;
 	fd = open(file, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
