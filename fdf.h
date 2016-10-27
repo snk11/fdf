@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 09:17:03 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 09:19:51 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,12 @@ typedef struct		s_para
 {
 	int		dx;
 	int		dy;
-	int		sx;
-	int		sy;
-	int		err;
-	int		e2;
-
 	int		cumul;
 	int		x;
 	int		y;
-	int		d;
-	int		s;
 	int		i;
 	int		xinc;
 	int		yinc;
-	int		incre;
-	int		incrne;
-	int		e;
-	long		a;
-	long		b;
 }					t_para;
 
 typedef struct		s_doub
