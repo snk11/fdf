@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 15:57:03 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 10:35:41 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 10:41:18 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void		draw11(t_env2 *env2)
 	while (p < env2->nb_lines - 1)
 	{
 		coord1 = get_coord1(env2, env2->doub1[p][env2->col[p] - 1], &ft_iso1);
-		coord2 = get_coord1(env2, env2->doub1[p + 1][env2->col[p] - 1], &ft_iso1);
+		coord2 = get_coord1(env2, env2->doub1[p + 1][env2->col[p] - 1],
+				&ft_iso1);
 		ft_print_line1(env2, coord1, coord2);
 		p++;
 	}
@@ -61,4 +62,3 @@ void		draw11(t_env2 *env2)
 		q++;
 	}
 }
-
