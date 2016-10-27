@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 11:08:48 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 14:18:46 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ t_doub				get_coord1(t_env2 *e2, t_doub c1,
 		t_doub (*f)(int, int, int));
 t_doub				ft_iso1(int x, int y, int z);
 int					ft_get_col1(char *line, t_env2 *env2, int i);
+void		ft_free(char **s);
 
 #endif

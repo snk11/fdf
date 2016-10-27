@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 10:09:21 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 10:48:13 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 14:18:34 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,10 @@ t_doub		ft_iso1(int x, int y, int z)
 	coord1.y = -z + 0.5 / 2 * x + 0.5 / 2 * y;
 	coord1.z = z;
 	return (coord1);
+}
+
+void		ft_free(char **s)
+{
+	free(*s);
+	*s = NULL;
 }
