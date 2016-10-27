@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 10:05:16 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 10:07:29 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void		ft_read_map11(char *file, t_env2 *env2, char *line)
 	(env2)->offy = 0;
 	(env2)->coeff = 2;
 }
-
-
 
 void			ft_getpoint1(char *line, t_env2 *env2, int j)
 {
