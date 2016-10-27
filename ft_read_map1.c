@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 09:27:00 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 10:05:16 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,69 +70,33 @@ void		ft_read_map11(char *file, t_env2 *env2, char *line)
 
 void			ft_getpoint1(char *line, t_env2 *env2, int j)
 {
-	int		i;
-	int		start;
-	int		k;
-	int		tmp;
+	t_ca	c1;
 
-	i = 0;
-	k = 0;
-	while (line[i] && env2->error == 0)
+	ft_init3(&c1);
+	while (line[c1.i] && env2->error == 0)
 	{
-		if(ft_checkmode(&line[i]) == 1)
+		if(ft_checkmode(&line[c1.i]) == 1)
 		{
-			if (ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
+			if (ft_isdigit(line[c1.i]) && line[c1.i] != '+' && line[c1.i] != '-')
 			{
-				start = i;
-				while (line[i] && ft_isdigit(line[i]) && line[i] != '+'
-						&& line[i] != '-')
-					i++;
-				ft_getpoint12(env2, j, k);
-				tmp = ft_atoi(ft_strsub(line, start, i - start));
-				((env2)->doub1)[j][k].z = tmp;
-				if(line[i] == ',' && line[i+1] && line[i+1] == '0' && line[i+2] && line[i+2] == 'x')
-				{
-
-					i = i + 3;
-					start = i;
-					while (line[i]  && line[i] != '+'
-							&& line[i] != '-' && (ft_isdigit(line[i]) || (line[i] >= 'a' && line[i] <= 'f' )|| (line[i] >= 'A' && line[i] <= 'F')))
-						i++;
-					if(start < i)
-					{
-						tmp = ft_hexaatoi(ft_strsub(line, start, i - start));
-						((env2)->doub1)[j][k].color = tmp;
-					}
-				}
-				k++;
+				ft_getpoint11(env2, line , j, &c1);
+				c1.k++;
 			}
 		}
-		else if (ft_checkmode(&line[i]) == 0 && ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
-		{	while (line[i] && env2->error == 0 && line[i] != '\t' && line[i] != ' ')
-			{
-				if (ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
-				{
-					start = i;
-					while (line[i] && ft_isdigit(line[i]) && line[i] != '+'
-							&& line[i] != '-')
-						i++;
-					ft_getpoint12(env2, j, k);
-					tmp = ft_atoi(ft_strsub(line, start, i - start));
-					((env2)->doub1)[j][k].z = tmp;
-					k++;
-				}
-				else
-					env2->error = 1;
-			}
+		else if (ft_checkmode(&line[c1.i]) == 0 && ft_isdigit(line[c1.i]) && line[c1.i] != '+' && line[c1.i] != '-')
+		{
+			ft_getpoint12(env2, line, j, &c1);
+			if (env2->error != 1)
+				c1.k++;
 		}
-		else if (line[i] == '\t' || line[i] == ' ')
-			i++;
+		else if (line[c1.i] == '\t' || line[c1.i] == ' ')
+			c1.i++;
 		else
 			env2->error = 1;
 	}
 }
 
-void			ft_getpoint12(t_env2 *env2, int j, int k)
+void			ft_getpoint3(t_env2 *env2, int j, int k)
 {
 	((env2)->doub1)[j][k].x = k;
 	((env2)->doub1)[j][k].y = j;

@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 09:22:26 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 10:03:54 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@ typedef struct		s_para
 	int		yinc;
 }					t_para;
 
+typedef struct		s_ca
+{
+	int		i;
+	int		start;
+	int		k;
+	int		tmp;
+}
+					t_ca;
+
 typedef struct		s_doub
 {
 	int				x;
@@ -84,11 +93,14 @@ void				ft_getpoint2(t_env2 *env2, int j, int k);
 int					ft_get_col(char *line, t_env2 *env2, int i);
 void				ft_init(t_env2 *env2);
 void				ft_init2(t_para *para1);
+void				ft_init3(t_ca *c1);
 int					ft_checkmode(char *line);
 void				ft_read_map1(char *file, t_env2 *env2);
 void				ft_read_map11(char *file, t_env2 *env2, char *line);
 void				ft_getpoint1(char *line, t_env2 *env2, int j);
-void				ft_getpoint12(t_env2 *env2, int j, int k);
+void				ft_getpoint3(t_env2 *env2, int j, int k);
+void				ft_getpoint11(t_env2 *env2, char *line, int j, t_ca *c1);
+void				ft_getpoint12(t_env2 *env2, char *line, int j, t_ca *c1);
 int					ft_get_col1(char *line, t_env2 *env2, int i);
 
 
