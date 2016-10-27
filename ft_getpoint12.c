@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 09:28:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 10:06:56 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 10:54:35 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void		ft_getpoint12(t_env2 *env2, char *line, int j, t_ca *c1)
 {
-	while (line[c1->i] && env2->error == 0 && line[c1->i] != '\t' && line[c1->i] != ' ')
+	while (line[c1->i] && env2->error == 0 && line[c1->i] != '\t'
+			&& line[c1->i] != ' ')
 	{
 		if (ft_isdigit(line[c1->i]) && line[c1->i] != '+' && line[c1->i] != '-')
 		{
