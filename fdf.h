@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 14:32:39 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 14:35:28 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void				ft_read_map111(char *file, t_env2 *env2, char *line);
 void				ft_getpoint1(char *line, t_env2 *env2, int j);
 void				ft_getpoint3(t_env2 *env2, int j, int k);
 void				ft_getpoint11(t_env2 *env2, char *line, int j, t_ca *c1);
+void				ft_getpoint111(t_env2 *env2, char *line, int j, t_ca *c1);
 void				ft_getpoint12(t_env2 *env2, char *line, int j, t_ca *c1);
 int					ft_get_col1(char *line, t_env2 *env2, int i);
 void				ft_print_line11(t_env2 *env2, t_para para1);
