@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 10:55:56 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 11:05:09 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void			ft_read_map1(char *file, t_env2 *env2)
 	ft_read_map11(file, env2, line);
 }
 
-void		ft_read_map11(char *file, t_env2 *env2, char *line)
+void			ft_read_map11(char *file, t_env2 *env2, char *line)
 {
 	int		fd;
 	int		j;
@@ -73,19 +73,19 @@ void			ft_getpoint1(char *line, t_env2 *env2, int j)
 	ft_init3(&c1);
 	while (line[c1.i] && env2->error == 0)
 	{
-		if(ft_checkmode(&line[c1.i]) == 1)
+		if (ft_checkmode(&line[c1.i]) == 1)
 		{
-			if (ft_isdigit(line[c1.i]) && line[c1.i] != '+' && line[c1.i] != '-')
+			if (ft_isdigit(line[c1.i]) && line[c1.i] != '+'
+					&& line[c1.i] != '-')
 			{
-				ft_getpoint11(env2, line , j, &c1);
+				ft_getpoint11(env2, line, j, &c1);
 				c1.k++;
 			}
 		}
-		else if (ft_checkmode(&line[c1.i]) == 0 && ft_isdigit(line[c1.i]) && line[c1.i] != '+' && line[c1.i] != '-')
+		else if (ft_checkmode(&line[c1.i]) == 0 && ft_isdigit(line[c1.i])
+				&& line[c1.i] != '+' && line[c1.i] != '-')
 		{
 			ft_getpoint12(env2, line, j, &c1);
-			if (env2->error != 1)
-				c1.k++;
 		}
 		else if (line[c1.i] == '\t' || line[c1.i] == ' ')
 			c1.i++;
@@ -111,8 +111,8 @@ int				ft_get_col1(char *line, t_env2 *env2, int i)
 	{
 		if (ft_isdigit(line[k]) && line[k] != '+' && line[k] != '-')
 		{
-			while (line[k] && (ft_isalnum(line[k]) || line[k] == ',' || line[k] == 'x')&& line[k] != '+'
-					&& line[k] != '-')
+			while (line[k] && (ft_isalnum(line[k]) || line[k] == ','
+						|| line[k] == 'x') && line[k] != '+' && line[k] != '-')
 				k++;
 			n++;
 		}

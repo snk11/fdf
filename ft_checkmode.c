@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:41:24 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 08:23:22 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 10:58:34 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int		ft_checkmode(char *line)
 {
-	while(*line)
+	while (*line)
 	{
-		if(*line == ',')
+		if (*line == ',')
 			return (1);
-		if(*line == ' ')
+		if (*line == ' ')
 			return (0);
 		line++;
 	}
 	return (0);
 }
-

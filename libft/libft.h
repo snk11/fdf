@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 13:00:41 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 15:45:39 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 11:06:58 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 int					ft_abs(int n);
 int					ft_pow(int n, int p);
-int		ft_hexaatoi(char *s);
+int					ft_hexaatoi(char *s);
 
 #endif

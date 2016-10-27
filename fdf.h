@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 10:38:09 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 11:08:48 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,7 @@
 # include <math.h>
 # include <stdio.h>
 # include "libmlx/mlx.h"
-/*
-typedef struct		s_coord
-{
-	int				x;
-	int				y;
-	int				z;
-}					t_coord;
-*/
+
 typedef struct		s_para
 {
 	int		dx;
@@ -50,12 +43,11 @@ typedef struct		s_para
 
 typedef struct		s_ca
 {
-	int		i;
-	int		start;
-	int		k;
-	int		tmp;
-}
-					t_ca;
+	int				i;
+	int				start;
+	int				k;
+	int				tmp;
+}					t_ca;
 
 typedef struct		s_doub
 {

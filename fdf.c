@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/19 10:52:17 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 09:21:56 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 11:07:31 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		main(int arc, char **arv)
 	env2->win = mlx_new_window(env2->mlx, 800, 800, "fdf");
 	if (arc == 2)
 		ft_read_map1(arv[1], env2);
-
 	if (env2->error == 0)
 	{
 		mlx_key_hook(env2->win, key_hook1, env2);
