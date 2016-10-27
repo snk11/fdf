@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 09:23:10 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 09:27:00 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,6 @@ void		ft_read_map11(char *file, t_env2 *env2, char *line)
 	{
 		c = ft_get_col1(line, env2, j);
 		((env2)->doub1)[j] = (t_doub*)malloc(sizeof(t_doub) * c);
-		j++;
-	}
-	close(fd);
-	j = 0;
-	fd = open(file, O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
-	{
-		ft_getpoint1(line, env2, j);
 		j++;
 	}
 	close(fd);
