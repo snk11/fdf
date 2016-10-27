@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 15:57:03 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 09:20:01 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 09:23:42 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			ft_print_line1(t_env2 *env2, t_doub coord1, t_doub coord2)
 	para1.dx = abs(para1.dx) ;
 	para1.dy = abs(para1.dy) ;
 	mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
-				   + para1.x, OY +env2->offy + para1.y, env2->color);
+			+ para1.x, OY +env2->offy + para1.y, env2->color);
 	if ( para1.dx > para1.dy )
 	{
 		para1.cumul = para1.dx / 2 ;
@@ -40,7 +40,7 @@ int			ft_print_line1(t_env2 *env2, t_doub coord1, t_doub coord2)
 				para1.y += para1.yinc ;
 			}
 			mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
-				   + para1.x, OY +env2->offy + para1.y, env2->color);
+					+ para1.x, OY +env2->offy + para1.y, env2->color);
 			para1.i++;
 		}
 	}
@@ -58,7 +58,7 @@ int			ft_print_line1(t_env2 *env2, t_doub coord1, t_doub coord2)
 				para1.x += para1.xinc ; 
 			}
 			mlx_pixel_put((env2)->mlx, (env2)->win, OX +env2->offx
-				   + para1.x, OY +env2->offy + para1.y, env2->color);
+					+ para1.x, OY +env2->offy + para1.y, env2->color);
 			para1.i++;
 		}
 	}
