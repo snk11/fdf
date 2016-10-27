@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/26 21:00:46 by syusof           ###   ########.fr       */
+/*   Updated: 2016/10/27 09:01:44 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void			ft_getpoint1(char *line, t_env2 *env2, int j)
 			}
 		}
 		else if (ft_checkmode(&line[i]) == 0 && ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
-		{	while (line[i] && env2->error == 0)
+		{	while (line[i] && env2->error == 0 && line[i] != '\t' && line[i] != ' ')
 			{
 				if (ft_isdigit(line[i]) && line[i] != '+' && line[i] != '-')
 				{
@@ -124,11 +124,13 @@ void			ft_getpoint1(char *line, t_env2 *env2, int j)
 					while (line[i] && ft_isdigit(line[i]) && line[i] != '+'
 							&& line[i] != '-')
 						i++;
-					ft_getpoint2(env2, j, k);
+					ft_getpoint12(env2, j, k);
 					tmp = ft_atoi(ft_strsub(line, start, i - start));
 					((env2)->doub1)[j][k].z = tmp;
 					k++;
 				}
+				else
+					env2->error = 1;
 			}
 		}
 		else if (line[i] == '\t' || line[i] == ' ')
@@ -167,7 +169,6 @@ int				ft_get_col1(char *line, t_env2 *env2, int i)
 		else
 			env2->error = 1;
 	}
-	printf("n = %d\n",n);
 	((env2)->col)[i] = n;
 	return (n);
 }
