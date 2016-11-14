@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_run1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/26 11:12:39 by syusof            #+#    #+#             */
-/*   Updated: 2016/11/14 11:15:46 by syusof           ###   ########.fr       */
+/*   Created: 2016/11/14 12:01:10 by syusof            #+#    #+#             */
+/*   Updated: 2016/11/14 12:03:46 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_init(t_env2 *env2)
+void		ft_run1(int fd, char *file, t_env2 *env2)
 {
-	env2->nb_lines = 0;
-	env2->offx = 0;
-	env2->offy = 0;
-	env2->coeff = 0;
-	env2->color = 0xFF0000;
-	env2->i = 0;
-	env2->error = 0;
-	env2->dir = 1;
-	env2->readmode = 0;
-}
+	int		j;
+	char	*line;
 
-void	ft_init2(t_para *para1)
-{
-	para1->dx = 0;
-	para1->dy = 0;
-}
-
-void	ft_init3(t_ca *c1)
-{
-	c1->i = 0;
-	c1->start = 0;
-	c1->k = 0;
-	c1->tmp = 0;
+	line = NULL;
+	j = 0;
+	while (get_next_line(fd, &line) > 0)
+	{
+		if (*line)
+		{
+			j++;
+			(env2)->nb_lines = j;
+		}
+		ft_free(&line);
+	}
+	ft_free(&line);
+	close(fd);
+	(env2)->doub1 = (t_doub**)malloc(sizeof(t_doub*) * j);
+	fd = open(file, O_RDONLY);
+	(env2)->col = (int*)malloc(sizeof(int) * j);
+	ft_read_map11(file, env2, line);
 }

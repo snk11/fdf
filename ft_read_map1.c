@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 14:43:12 by syusof           ###   ########.fr       */
+/*   Updated: 2016/11/14 12:02:27 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,26 @@
 void			ft_read_map1(char *file, t_env2 *env2)
 {
 	int		fd;
-	char	*line;
-	int		j;
 	int		c;
 
 	c = 0;
-	line = NULL;
-	j = 0;
+	fd = open(file, O_DIRECTORY);
+	if (fd == -1)
+		env2->dir = 0;
 	fd = open(file, O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
+	if (fd == -1)
 	{
-		if (*line)
-		{
-			j++;
-			(env2)->nb_lines = j;
-		}
-		ft_free(&line);
+		env2->error = 2;
+		ft_putstr_fd(strerror(errno), 2);
+		ft_putstr_fd("\n", 2);
 	}
-	ft_free(&line);
-	close(fd);
-	(env2)->doub1 = (t_doub**)malloc(sizeof(t_doub*) * j);
-	fd = open(file, O_RDONLY);
-	(env2)->col = (int*)malloc(sizeof(int) * j);
-	ft_read_map11(file, env2, line);
+	else if (fd != -1 && env2->dir == 0)
+		ft_run1(fd, file, env2);
+	else if (env2->dir == 1)
+	{
+		ft_putstr_fd(file, 2);
+		ft_putstr_fd(" is a directory\n", 2);
+	}
 }
 
 void			ft_read_map11(char *file, t_env2 *env2, char *line)

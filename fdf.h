@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 14:44:27 by syusof           ###   ########.fr       */
+/*   Updated: 2016/11/14 11:58:13 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # include <stdlib.h>
 # include <math.h>
 # include <stdio.h>
+# include <string.h>
+# include <errno.h>
 # include "libmlx/mlx.h"
 
 typedef struct		s_para
@@ -70,6 +72,7 @@ typedef struct		s_env2
 	int				color;
 	int				i;
 	int				error;
+	int				dir;
 	int				readmode;
 }					t_env2;
 
@@ -100,5 +103,6 @@ t_doub				get_coord1(t_env2 *e2, t_doub c1,
 t_doub				ft_iso1(int x, int y, int z);
 int					ft_get_col1(char *line, t_env2 *env2, int i);
 void				ft_free(char **s);
+void				ft_run1(int fd,char *file, t_env2 *env2);
 
 #endif
