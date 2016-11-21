@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 10:09:21 by syusof            #+#    #+#             */
-/*   Updated: 2016/10/27 14:47:49 by syusof           ###   ########.fr       */
+/*   Updated: 2016/11/21 13:39:01 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ t_doub		ft_iso1(int x, int y, int z)
 
 void		ft_free(char **s)
 {
-	free(*s);
-	*s = NULL;
+	if (*s)
+	{
+		free(*s);
+		*s = NULL;
+	}
 }
