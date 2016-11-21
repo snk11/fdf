@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 01:39:59 by syusof            #+#    #+#             */
-/*   Updated: 2016/11/21 12:08:12 by syusof           ###   ########.fr       */
+/*   Updated: 2016/11/21 14:05:26 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ int					ft_get_col1(char *line, t_env2 *env2, int i);
 void				ft_free(char **s);
 void				ft_run1(int fd, char *file, t_env2 *env2);
 int		ft_checkint(char *s);
+int		ft_checkint2(char *s);
 int		ft_checkint_p1(char *s1);
 int		ft_checkint_p2_p1(char *s1);
 int		ft_checkint_p2_p1_p1(char *s1);
@@ -122,6 +123,7 @@ int		ft_checkint_p2_p2_p8(char *s1);
 int		ft_checkint_p2_p2_p3(char *s1);
 int		ft_checkint_p2(char *s1);
 int		ft_checkdigit(char *s);
+int		ft_checkdigit2(char *s);
 int		ft_strlen_isdigit(char *s);
 
 #endif
