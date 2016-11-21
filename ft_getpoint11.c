@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 09:28:35 by syusof            #+#    #+#             */
-/*   Updated: 2016/11/21 14:18:25 by syusof           ###   ########.fr       */
+/*   Updated: 2016/11/21 14:55:05 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void		ft_getpoint11(t_env2 *env2, char *line, int j, t_ca *c1)
 			ft_free(&s1);
 			((env2)->doub1)[j][c1->k].z = c1->tmp;
 			c1->k++;
-			ft_getpoint111(env2, line, j, c1);
+
+
+			if(line[c1->i] == ',')
+				ft_getpoint111(env2, line, c1);
 		}
 		else
 			env2->error = 1;
@@ -49,14 +52,22 @@ void		ft_getpoint11(t_env2 *env2, char *line, int j, t_ca *c1)
 	ft_free(&s1);
 	((env2)->doub1)[j][c1->k].z = c1->tmp;
 	*/
-	ft_getpoint111(env2, line, j, c1);
 }
 
-void		ft_getpoint111(t_env2 *env2, char *line, int j, t_ca *c1)
+void		ft_getpoint111(t_env2 *env2, char *line, t_ca *c1)
 {
 	char	*s1;
 
 	s1 = NULL;
+			if (ft_checkcolor(&(line[c1->i])) == 1)
+			{
+				while(line[c1->i] && line[c1->i] != ' ' && line[c1->i] != '\t')
+					c1->i++;
+
+			}
+			else
+				env2->error = 1;
+			/*
 	if (line[c1->i] == ',' && line[c1->i + 1] && line[c1->i + 1] == '0'
 			&& line[c1->i + 2] && line[c1->i + 2] == 'x')
 	{
@@ -75,4 +86,5 @@ void		ft_getpoint111(t_env2 *env2, char *line, int j, t_ca *c1)
 			((env2)->doub1)[j][c1->k].color = c1->tmp;
 		}
 	}
+	*/
 }
