@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 09:28:35 by syusof            #+#    #+#             */
-/*   Updated: 2016/11/21 14:55:05 by syusof           ###   ########.fr       */
+/*   Updated: 2016/11/21 15:19:53 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		ft_getpoint11(t_env2 *env2, char *line, int j, t_ca *c1)
 		{
 			c1->start = c1->i;
 			while (line[c1->i] && (ft_isdigit(line[c1->i]) || line[c1->i] == '+'
-					|| line[c1->i] == '-'))
+						|| line[c1->i] == '-'))
 				c1->i++;
 			ft_getpoint3(env2, j, c1->k);
 			s1 = ft_strsub(line, c1->start, c1->i - c1->start);
@@ -32,59 +32,22 @@ void		ft_getpoint11(t_env2 *env2, char *line, int j, t_ca *c1)
 			ft_free(&s1);
 			((env2)->doub1)[j][c1->k].z = c1->tmp;
 			c1->k++;
-
-
 			if(line[c1->i] == ',')
 				ft_getpoint111(env2, line, c1);
 		}
 		else
 			env2->error = 1;
 	}
-	/*
-	s1 = NULL;
-	c1->start = c1->i;
-	while (line[c1->i] && ft_isdigit(line[c1->i]) && line[c1->i] != '+'
-			&& line[c1->i] != '-')
-		c1->i++;
-	ft_getpoint3(env2, j, c1->k);
-	s1 = ft_strsub(line, c1->start, c1->i - c1->start);
-	c1->tmp = ft_atoi(s1);
-	ft_free(&s1);
-	((env2)->doub1)[j][c1->k].z = c1->tmp;
-	*/
 }
 
 void		ft_getpoint111(t_env2 *env2, char *line, t_ca *c1)
 {
-	char	*s1;
-
-	s1 = NULL;
-			if (ft_checkcolor(&(line[c1->i])) == 1)
-			{
-				while(line[c1->i] && line[c1->i] != ' ' && line[c1->i] != '\t')
-					c1->i++;
-
-			}
-			else
-				env2->error = 1;
-			/*
-	if (line[c1->i] == ',' && line[c1->i + 1] && line[c1->i + 1] == '0'
-			&& line[c1->i + 2] && line[c1->i + 2] == 'x')
+	if (ft_checkcolor(&(line[c1->i])) == 1)
 	{
-		c1->i = c1->i + 3;
-		c1->start = c1->i;
-		while (line[c1->i] && line[c1->i] != '+'
-				&& line[c1->i] != '-' && (ft_isdigit(line[c1->i])
-					|| (line[c1->i] >= 'a' && line[c1->i] <= 'f')
-					|| (line[c1->i] >= 'A' && line[c1->i] <= 'F')))
+		while(line[c1->i] && line[c1->i] != ' ' && line[c1->i] != '\t')
 			c1->i++;
-		if (c1->start < c1->i)
-		{
-			s1 = ft_strsub(line, c1->start, c1->i - c1->start);
-			c1->tmp = ft_hexaatoi(s1);
-			ft_free(&s1);
-			((env2)->doub1)[j][c1->k].color = c1->tmp;
-		}
+
 	}
-	*/
+	else
+		env2->error = 1;
 }
