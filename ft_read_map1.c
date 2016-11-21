@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/26 14:49:57 by syusof            #+#    #+#             */
-/*   Updated: 2016/11/14 12:02:27 by syusof           ###   ########.fr       */
+/*   Updated: 2016/11/21 12:32:23 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void			ft_getpoint1(char *line, t_env2 *env2, int j)
 	ft_init3(&c1);
 	while (line[c1.i] && env2->error == 0)
 	{
+		while (line[c1.i] && (line[c1.i] == ' ' || line[c1.i] == '\t'))
+			c1.i++;
 		if (ft_checkmode(&line[c1.i]) == 1)
 		{
 			if (ft_isdigit(line[c1.i]) && line[c1.i] != '+'
@@ -93,20 +95,11 @@ void			ft_getpoint1(char *line, t_env2 *env2, int j)
 				c1.k++;
 			}
 		}
-		else if (ft_checkmode(&line[c1.i]) == 0 && ft_isdigit(line[c1.i])
-				&& line[c1.i] != '+' && line[c1.i] != '-')
+		else if (ft_checkmode(&line[c1.i]) == 0)
 		{
 			ft_getpoint12(env2, line, j, &c1);
 		}
-		else if (line[c1.i] == '\t' || line[c1.i] == ' ')
-			c1.i++;
 		else
 			env2->error = 1;
 	}
-}
-
-void			ft_getpoint3(t_env2 *env2, int j, int k)
-{
-	((env2)->doub1)[j][k].x = k;
-	((env2)->doub1)[j][k].y = j;
 }
