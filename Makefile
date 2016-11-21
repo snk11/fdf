@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: syusof <syusof@student.42.fr>              +#+  +:+       +#+         #
+#    By: syusof <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2014/12/03 00:07:39 by syusof            #+#    #+#              #
-#    Updated: 2016/11/21 14:50:12 by syusof           ###   ########.fr        #
+#    Created: 2016/11/21 15:23:27 by syusof            #+#    #+#              #
+#    Updated: 2016/11/21 15:23:59 by syusof           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,3 +48,4 @@ fclean: clean
 	make -C libft/ fclean
 
 re: fclean all
+

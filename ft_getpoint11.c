@@ -6,7 +6,7 @@
 /*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 09:28:35 by syusof            #+#    #+#             */
-/*   Updated: 2016/11/21 15:19:53 by syusof           ###   ########.fr       */
+/*   Updated: 2016/11/21 15:27:29 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		ft_getpoint11(t_env2 *env2, char *line, int j, t_ca *c1)
 			ft_free(&s1);
 			((env2)->doub1)[j][c1->k].z = c1->tmp;
 			c1->k++;
-			if(line[c1->i] == ',')
+			if (line[c1->i] == ',')
 				ft_getpoint111(env2, line, c1);
 		}
 		else
@@ -44,9 +44,8 @@ void		ft_getpoint111(t_env2 *env2, char *line, t_ca *c1)
 {
 	if (ft_checkcolor(&(line[c1->i])) == 1)
 	{
-		while(line[c1->i] && line[c1->i] != ' ' && line[c1->i] != '\t')
+		while (line[c1->i] && line[c1->i] != ' ' && line[c1->i] != '\t')
 			c1->i++;
-
 	}
 	else
 		env2->error = 1;
