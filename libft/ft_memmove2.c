@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_memmove2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/13 05:32:19 by syusof            #+#    #+#             */
-/*   Updated: 2014/11/19 00:35:29 by syusof           ###   ########.fr       */
+/*   Created: 2016/05/23 04:10:20 by syusof            #+#    #+#             */
+/*   Updated: 2016/11/18 18:32:09 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
+char	*ft_memmove2(char *src)
 {
-	if (alst && del)
+	int		i;
+	int		n;
+	char	*temp;
+
+	n = ft_strlen(src);
+	temp = (char*)malloc(sizeof(char) * n + 1);
+	i = 0;
+	while (i <= n)
 	{
-		del((*alst)->content, (*alst)->content_size);
-		free(*alst);
-		*alst = NULL;
+		temp[i] = src[i];
+		i++;
 	}
+	return (temp);
 }

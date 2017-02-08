@@ -6,7 +6,7 @@
 /*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 15:03:37 by syusof            #+#    #+#             */
-/*   Updated: 2014/11/12 00:15:43 by syusof           ###   ########.fr       */
+/*   Updated: 2017/01/24 11:37:06 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ char	*ft_strnew(size_t size)
 	char		*str;
 	size_t		i;
 
-	if ((str = (char*)malloc(sizeof(char) * size + 1)))
+	if ((str = (char*)malloc(sizeof(char) * size)))
 	{
 		i = 0;
-		while (i < size + 1)
+		while (i < size)
 		{
-			str[i] = '\0';
+			str[i] = 0;
 			i++;
 		}
 		return (str);

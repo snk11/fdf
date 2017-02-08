@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lldtoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syusof <syusof@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syusof <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/06 18:13:11 by syusof            #+#    #+#             */
-/*   Updated: 2017/02/08 10:44:54 by syusof           ###   ########.fr       */
+/*   Created: 2016/06/14 08:04:30 by syusof            #+#    #+#             */
+/*   Updated: 2017/02/08 10:45:16 by syusof           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_countdigit(int n)
+static int		ft_countdigit(long long n)
 {
-	int		i;
+	long long int	i;
 
 	i = 1;
 	while (n > 9)
@@ -25,7 +25,7 @@ static int		ft_countdigit(int n)
 	return (i);
 }
 
-static void		itoa_neg(char *str, int n, int i)
+static void		itoa_neg(char *str, long long int n, long long int i)
 {
 	while (i > 0)
 	{
@@ -36,7 +36,7 @@ static void		itoa_neg(char *str, int n, int i)
 	str[0] = '-';
 }
 
-static void		itoa_pos(char *str, int n, int i)
+static void		itoa_pos(char *str, long long int n, long long int i)
 {
 	while (i > 0)
 	{
@@ -46,18 +46,18 @@ static void		itoa_pos(char *str, int n, int i)
 	}
 }
 
-char			*ft_itoa(int n)
+char			*ft_lldtoa(long long int n)
 {
-	char	*str;
-	int		i;
+	char				*str;
+	long long int		i;
 
-	if (n == INT_MIN)
+	if (n == LLONG_MIN)
 	{
-		str = ft_strnew(11 + 1);
-		str = ft_strcpy(str, "-2147483648");
+		str = ft_strnew(21 + 1);
+		str = ft_strcpy(str, "-9223372036854775808");
 		return (str);
 	}
-	if (n < 0 && n != INT_MIN)
+	if (n < 0 && n != LLONG_MIN)
 	{
 		n = -n;
 		i = ft_countdigit(n);
