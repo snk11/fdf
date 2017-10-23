@@ -1,6 +1,6 @@
 # INTRODUCTION
 ```
-It's a application using a graphic lib written in C (minilibx).
+This is a application using a graphic lib written in C (minilibx).
 the application take a map of coordinates in argument and it draw the result in a window. 
 ```
 
