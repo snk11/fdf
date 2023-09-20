@@ -1,7 +1,7 @@
 # INTRODUCTION
 ```
 This is an application using a graphic lib written in C (minilibx).
-the application take a map of coordinates in argument and it draw the result in a window. 
+the application take a map of coordinates in argument and it draws the result in a window. 
 ```
 
 # MAKEFILE
